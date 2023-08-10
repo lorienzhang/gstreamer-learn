@@ -37,6 +37,8 @@ meson --reconfigure -Dlibav=enabled -Dgst-plugins-ugly:x264=enabled -Dgpl=enable
 
 ### 测试
 ```shell
+which gst-launch-1.0
+
 # 播放测试视频
 gst-launch-1.0 videotestsrc ! autovideosink
 

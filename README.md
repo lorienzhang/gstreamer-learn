@@ -1,2 +1,48 @@
 # gstreamer-learn
-TEST
+
+## 一、gstreamer初体验
+### 下载
+```shell
+git clone https://gitlab.freedesktop.org/gstreamer/gstreamer.git
+```
+### 安装meson
+```shell
+sudo apt-get install meson
+meson -v
+
+# 升级meson版本
+sudo apt-get install python3-pip
+pip3 install meson==0.63
+```
+
+### 构建
+```shell
+cd gstreamer
+meson build
+
+cd build
+ninja
+sudo ninja install
+```
+
+### 配置
+```shell
+meson --reconfigure -Dlibav=enabled -Dgst-plugins-ugly:x264=enabled -Dgpl=enabled build
+```
+
+### 进入开发环境（development environment）
+```shell
+./gst-env.py
+```
+
+### 测试
+```shell
+# 播放测试视频
+gst-launch-1.0 videotestsrc ! autovideosink
+
+# 播放在线视频
+gst-launch-1.0 playbin uri=https://gstreamer.freedesktop.org/data/media/sintel_trailer-480p.webm
+
+# 播放本地视频
+gst-launch-1.0 playbin uri=file:///home/lorien/work/media/test.mp4
+```

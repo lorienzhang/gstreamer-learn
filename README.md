@@ -53,7 +53,8 @@ gst-launch-1.0 playbin uri=file:///home/lorien/work/media/test.mp4
 编译可调式程序
 ```shell
 ./gst-env.sh
-
+```
+```shell
 gcc -g basic-tutorial-3.c -o basic-tutorial-3 `pkg-config --cflags --libs gstreamer-1.0`
 ```
 

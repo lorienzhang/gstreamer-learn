@@ -48,3 +48,31 @@ gst-launch-1.0 playbin uri=https://gstreamer.freedesktop.org/data/media/sintel_t
 # 播放本地视频
 gst-launch-1.0 playbin uri=file:///home/lorien/work/media/test.mp4
 ```
+
+### VSCode 调试
+编译可调式程序
+```shell
+./gst-env.sh
+
+gcc -g basic-tutorial-3.c -o basic-tutorial-3 `pkg-config --cflags --libs gstreamer-1.0`
+```
+
+配置launch.json
+```shell
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "GStreamer - Build and debug",
+      "request": "launch",
+      "type": "cppdbg",
+      "linux": {
+        "MIMode": "gdb"
+      },
+      "program": "/work2/media/gstreamer/subprojects/gst-docs/examples/tutorials/basic-tutorial-3",
+      "cwd": "/work2/media/gstreamer/subprojects/gst-docs/examples/tutorials/",
+      "stopAtEntry": false,
+    }
+  ]
+}
+```
